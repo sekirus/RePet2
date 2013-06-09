@@ -13,11 +13,32 @@
 @end
 
 @implementation ViewController
+@synthesize tabBar;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg1.png"]];
+    UIImage *bgImg = [UIImage imageNamed:@"bg5.png"];
+//    tabBar.tintColor = [UIColor colorWithPatternImage:bgImg];
+//     tabBar.backgroundImage = bgImg;
+//    [tabBar setBackgroundImage:bgImg];
+    
+    
+    
+    UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,320,480)];
+    view.backgroundColor = [UIColor colorWithPatternImage:bgImg];
+    
+
+    [tabBar addSubview:view];
+    [tabBar sendSubviewToBack:view];
+    [tabBar setOpaque:NO];
+    [tabBar setBackgroundColor:[UIColor clearColor]];
+    [tabBar setTintColor:[UIColor clearColor]];
+
+//    [tabBar setSelectedImageTintColor:[UIColor clearColor]];
+    tabBar.selectedItem = tabBar.items[0];
 }
 
 - (void)didReceiveMemoryWarning
